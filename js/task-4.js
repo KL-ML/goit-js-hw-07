@@ -5,6 +5,20 @@ const refs = {
   titleInHead: document.querySelector('title'),
 };
 
+// styles
+const fontImportLinkMarkup = `
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..600&display=swap" rel="stylesheet">
+    `;
+refs.titleInHead.insertAdjacentHTML('afterend', fontImportLinkMarkup);
+refs.loginForm.classList.add('container');
+refs.inputField.forEach(input =>
+  input.classList.add('input-field-common')
+);
+refs.button.classList.add('button-common', 'login-form-btn');
+
+// code
 refs.loginForm.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
   event.preventDefault();
@@ -21,17 +35,3 @@ function handleSubmit(event) {
   console.log(dataObj);
   event.currentTarget.reset();
 }
-
-// styles
-
-const fontImportLinkMarkup = `
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..600&display=swap" rel="stylesheet">
-    `;
-refs.titleInHead.insertAdjacentHTML('afterend', fontImportLinkMarkup);
-refs.loginForm.classList.add('container');
-refs.inputField.forEach(input =>
-  input.classList.add('input-field-common')
-);
-refs.button.classList.add('button-common', 'login-form-btn');
