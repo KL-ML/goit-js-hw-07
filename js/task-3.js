@@ -1,35 +1,27 @@
-class StringBuilder {
-  #value;
-  constructor(initialValue) {
-    this.#value = initialValue;
+const refs = {
+  inputField: document.querySelector('#name-input'),
+  spanText: document.querySelector('#name-output'),
+  titleInHead: document.querySelector('title'),
+  title: document.querySelector('h1'),
+};
+
+refs.inputField.addEventListener('input', event => {
+  if (event.currentTarget.value.trim() !== '') {
+    return (refs.spanText.textContent = event.currentTarget.value.trim());
   }
+  return (refs.spanText.textContent = 'Anonymous');
+});
 
-  getValue() {
-    return this.#value;
-  }
+// styles
 
-  padEnd(str) {
-    this.#value += str;
-  }
-
-  padStart(str) {
-    this.#value = str + this.#value;
-  }
-
-  padBoth(str) {
-    this.padStart(str);
-    this.padEnd(str);
-  }
-}
-
-console.log('');
-console.log('Task-3');
-
-const builder = new StringBuilder('.');
-console.log(builder.getValue()); // "."
-builder.padStart('^');
-console.log(builder.getValue()); // "^."
-builder.padEnd('^');
-console.log(builder.getValue()); // "^.^"
-builder.padBoth('=');
-console.log(builder.getValue()); // "=^.^="
+const fontImportLinkMarkup = `
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..600&display=swap" rel="stylesheet">
+    `;
+refs.titleInHead.insertAdjacentHTML('afterend', fontImportLinkMarkup);
+refs.inputField.classList.add(
+  'input-field-common',
+  'input-task-three'
+);
+refs.title.classList.add('title-common', 'title-task-three');
