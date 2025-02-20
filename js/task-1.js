@@ -1,4 +1,3 @@
-const itemsOfCategory = document.querySelectorAll('.item');
 const refs = {
   titleInHead: document.querySelector('title'),
   container: document.querySelector('#categories'),
@@ -6,17 +5,7 @@ const refs = {
   itemHeader: document.querySelectorAll('h2'),
 };
 
-console.log('Number of categories: ', refs.itemsOfCategory.length);
-console.log(` `);
-
-refs.itemsOfCategory.forEach(item => {
-  console.log('Category:', item.firstElementChild.textContent);
-  console.log('Elements: ', item.lastElementChild.childElementCount);
-  console.log(` `);
-});
-
 // styles
-
 const fontImportLinkMarkup = `
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,3 +14,13 @@ const fontImportLinkMarkup = `
 refs.titleInHead.insertAdjacentHTML('afterend', fontImportLinkMarkup);
 refs.container.classList.add('container', 'categories');
 refs.itemHeader.forEach(header => header.classList.add('title-common'));
+
+// code
+console.log('Number of categories: ', refs.itemsOfCategory.length);
+console.log(` `);
+
+refs.itemsOfCategory.forEach(item => {
+  console.log('Category:', item.firstElementChild.textContent);
+  console.log('Elements: ', item.lastElementChild.childElementCount);
+  console.log(` `);
+});
