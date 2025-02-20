@@ -30,14 +30,7 @@ const refs = {
   titleInHead: document.querySelector('title'),
 };
 
-const galleryMarkup = ({ url, alt }) => {
-  return `<li><img src="${url}" height="300" width="360" alt="${alt}"></li>`;
-};
-const makeGalleryMarkup = images.map(galleryMarkup).join('');
-refs.galleryList.insertAdjacentHTML('afterbegin', makeGalleryMarkup);
-
 // styles
-
 const fontImportLinkMarkup = `
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,3 +38,10 @@ const fontImportLinkMarkup = `
     `;
 refs.titleInHead.insertAdjacentHTML('afterend', fontImportLinkMarkup);
 refs.galleryList.classList.add('container');
+
+// code
+const galleryMarkup = ({ url, alt }) => {
+  return `<li><img src="${url}" height="300" width="360" alt="${alt}"></li>`;
+};
+const makeGalleryMarkup = images.map(galleryMarkup).join('');
+refs.galleryList.insertAdjacentHTML('afterbegin', makeGalleryMarkup);
