@@ -12,16 +12,7 @@ const refs = {
   titleInHead: document.querySelector('title'),
 };
 
-refs.button.addEventListener('click', onChangeColor);
-
-function onChangeColor() {
-  const randomColor = getRandomHexColor();
-  refs.body.style.background = randomColor;
-  refs.textColor.textContent = randomColor;
-}
-
 // styles
-
 const fontImportLinkMarkup = `
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,3 +21,12 @@ const fontImportLinkMarkup = `
 refs.titleInHead.insertAdjacentHTML('afterend', fontImportLinkMarkup);
 refs.widget.classList.add('container');
 refs.button.classList.add('button-common');
+
+// code
+refs.button.addEventListener('click', onChangeColor);
+
+function onChangeColor() {
+  const randomColor = getRandomHexColor();
+  refs.body.style.background = randomColor;
+  refs.textColor.textContent = randomColor;
+}
