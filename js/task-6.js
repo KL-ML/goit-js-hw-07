@@ -13,6 +13,23 @@ const refs = {
   titleInHead: document.querySelector('title'),
 };
 
+// styles
+const fontImportLinkMarkup = `
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..600&display=swap" rel="stylesheet">
+    `;
+refs.titleInHead.insertAdjacentHTML('afterend', fontImportLinkMarkup);
+refs.input.classList.add('input-field-common', 'input-task-six');
+refs.controlsDiv.classList.add('box');
+refs.btnCreate.classList.add('button-common', 'button-task-six');
+refs.btnDestroy.classList.add(
+  'button-common',
+  'button-task-six',
+  'btn-destroy'
+);
+
+// code
 refs.btnCreate.addEventListener('click', createBoxes);
 
 function createBoxes(amount) {
@@ -52,20 +69,3 @@ function destroyBoxes() {
   refs.boxesDiv.innerHTML = '';
   refs.boxSize = 20;
 }
-
-// styles
-
-const fontImportLinkMarkup = `
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..600&display=swap" rel="stylesheet">
-    `;
-refs.titleInHead.insertAdjacentHTML('afterend', fontImportLinkMarkup);
-refs.input.classList.add('input-field-common', 'input-task-six');
-refs.controlsDiv.classList.add('box');
-refs.btnCreate.classList.add('button-common', 'button-task-six');
-refs.btnDestroy.classList.add(
-  'button-common',
-  'button-task-six',
-  'btn-destroy'
-);
