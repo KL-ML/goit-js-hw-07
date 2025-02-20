@@ -1,32 +1,27 @@
-const customer = {
-  username: 'Mango',
-  balance: 24000,
-  discount: 0.1,
-  orders: ['Burger', 'Pizza', 'Salad'],
-  // Change code below this line
-  getBalance() {
-    return this.balance;
-  },
-  getDiscount() {
-    return this.discount;
-  },
-  setDiscount(value) {
-    this.discount = value;
-  },
-  getOrders() {
-    return this.orders;
-  },
-  addOrder(cost, order) {
-    this.balance -= cost - cost * this.discount;
-    this.orders.push(order);
-  },
-  // Change code above this line
+const itemsOfCategory = document.querySelectorAll('.item');
+const refs = {
+  titleInHead: document.querySelector('title'),
+  container: document.querySelector('#categories'),
+  itemsOfCategory: document.querySelectorAll('.item'),
+  itemHeader: document.querySelectorAll('h2'),
 };
 
-console.log('Task-1');
+console.log('Number of categories: ', refs.itemsOfCategory.length);
+console.log(` `);
 
-customer.setDiscount(0.15);
-console.log(customer.getDiscount()); // 0.15
-customer.addOrder(5000, 'Steak');
-console.log(customer.getBalance()); // 19750
-console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
+refs.itemsOfCategory.forEach(item => {
+  console.log('Category:', item.firstElementChild.textContent);
+  console.log('Elements: ', item.lastElementChild.childElementCount);
+  console.log(` `);
+});
+
+// styles
+
+const fontImportLinkMarkup = `
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..600&display=swap" rel="stylesheet">
+    `;
+refs.titleInHead.insertAdjacentHTML('afterend', fontImportLinkMarkup);
+refs.container.classList.add('container', 'categories');
+refs.itemHeader.forEach(header => header.classList.add('title-common'));
